@@ -14,7 +14,8 @@ const db = new sqlite.Database(
 
     const sql = `CREATE TABLE IF NOT EXISTS challenge (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        words VARCHAR(255) NOT NULL)`;
+        words VARCHAR(255) NOT NULL,
+        is_palindrome BOOLEAN NOT NULL)`;
     db.run(sql, (error) => {
       if (error) {
         return console.error(error);
