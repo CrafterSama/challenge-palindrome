@@ -8,10 +8,10 @@ Desarrollar una aplicación full-stack que permita verificar si una palabra o fr
 
 1. Se creo la API en el back usando node, express y sqlite y en el Front se creo la interfaz con React + Nextjs, Shadcn UI. ✔️
 2. Se creo la interfaz de usuario para introducir una palabra o frase, la verifica y la guarda en el historial. ✔️
-3. Para el Back se uso el patron MVC (Las vistas en este caso son las respuestas de la API, ya que el render de la Info se hace en el Frontcon React), y en el Front se utilizo una arquitectura Modular. ✔️
+Nota: Para el Back se uso el patron MVC (Las vistas en este caso son las respuestas de la API, ya que el render de la Info se hace en el Frontcon React), y en el Front se utilizo una arquitectura Modular. ✔️
 
 ### Tecnologias utilizadas en Front
-Typescript, React, Next.js, Shadcn UI, React Hook Form, Zod
+Typescript, React, Next.js, Shadcn UI, React Hook Form, Zod, TanStack Query
 
 ### Tecnologias utilizadas en el Back
 Node.js, express.js, sqlite3
