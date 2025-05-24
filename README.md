@@ -4,44 +4,51 @@
 
 Desarrollar una aplicación full-stack que permita verificar si una palabra o frase es un palíndromo, y almacenar un historial de las entradas.
 
-## Cómo realizar el Challenge
+### Objetivos alcanzados
 
-Para realizar el challenge, puedes hacer un fork del repositorio que te dejamos a disposición o crear tu propio repositorio desde cero.
+1. Se creo la API en el back usando node, express y sqlite y en el Front se creo la interfaz con React + Nextjs, Shadcn UI. ✔️
+2. Se creo la interfaz de usuario para introducir una palabra o frase, la verifica y la guarda en el historial. ✔️
+3. Para el Back se uso el patron MVC (Las vistas en este caso son las respuestas de la API, ya que el render de la Info se hace en el Frontcon React), y en el Front se utilizo una arquitectura Modular. ✔️
 
-## Requisitos
+### Tecnologias utilizadas en Front
+Typescript, React, Next.js, Shadcn UI, React Hook Form, Zod
 
-### Backend
+### Tecnologias utilizadas en el Back
+Node.js, express.js, sqlite3
 
-- Crear un endpoint en Node.js que reciba una palabra o frase y devuelva si es un palíndromo.
-- Este endpoint debe manejar tanto palabras como frases.
-- Mantener un historial de las palabras o frases enviadas, almacenándolas en una estructura de datos adecuada.
+### Razones Claves para elegir el patrón modular en el Front
 
-### Frontend
+Cada feature tiene su "módulo" autocontenido.
 
-- Desarrollar una interfaz de usuario con Next.js que permita a los usuarios ingresar palabras o frases, enviar la solicitud al endpoint y mostrar si es un palíndromo.
-- Mostrar el historial de palabras o frases enviadas al backend en la misma interfaz.
+Se mantiene la separación de responsabilidades: UI, lógica, estado, modulos, servicios, etc.
 
-## Ejemplos
+Facilita el escalado del proyecto.
 
-### Palabras y/o frases palíndromos:
+### Razones para usar el patron MVC 
 
-- Anana
-- Radar
-- Somos
-- La ruta natural
-- A mamá Roma le aviva el amor a papá y a papá Roma le aviva el amor a mamá
+Separación de Responsabilidades, escalabilidad y mantenibilidad
 
-### Palabras y/o frases que no lo son:
+Mejora el trabajo en equipo, Es mas facil reutilizar el codigo
 
-- Casa
-- Perro
-- Camino
-- Buenos días
-- Hola mundo
-- COBOL es un lenguaje de programación
+### Como usar el Back y el Front
+Estando en los directorios de front o back se puede instalar todo respectivamente:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+Estando en los directorios de front o back se puede Correr el Server o correr la aplicacion de Front de forma respectiva:
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## Entregables
-
-- Código del backend y frontend, documentado y con instrucciones claras sobre cómo ejecutar la aplicación.
-- El código del backend y del frontend deberá estar en un repositorio de GitHub de manera pública.
-- Una vez finalizado, en el email del entregable deberás incluir el link al repositorio de GitHub junto al hash del commit.
