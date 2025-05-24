@@ -7,7 +7,7 @@ const store = (req, res) => {
     if (error) {
       return res.status(500).json({
         error,
-        message: "Internal Server Error",
+        message: `Internal Server Error: ${error}`,
       });
     }
     return res.status(201).json({

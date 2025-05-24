@@ -12,21 +12,33 @@ type WordsListProps = {
   data: WordsResponse;
 };
 
+type WordProps = {
+  id: string | number;
+  words: string;
+  is_palindrome: 0 | 1;
+};
+
 const WordsList = ({ data }: WordsListProps) => {
   return (
     <Table className="mt-4 w-full">
       <TableHeader>
-        <TableRow>
-          <TableHead colSpan={3} className="w-full text-center">
-            Lista de Palabras Palindromes
+        <TableRow className="w-full">
+          <TableHead colSpan={2} className="w-full text-center">
+            Palabra o Frase
+          </TableHead>
+          <TableHead colSpan={2} className="w-full text-center">
+            Es Palindrome
           </TableHead>
         </TableRow>
       </TableHeader>
-      <TableBody>
-        {data?.words?.map((word: { id: string | number; words: string }) => (
-          <TableRow key={word.id}>
-            <TableCell colSpan={3} className="w-full text-center">
+      <TableBody className="overflow-y-auto max-h-[500px]">
+        {data?.words?.map((word: WordProps) => (
+          <TableRow key={word.id} className="w-full">
+            <TableCell colSpan={2} className="w-full text-center">
               {word.words}
+            </TableCell>
+            <TableCell colSpan={2} className="w-full text-center">
+              {word.is_palindrome ? "Si" : "No"}
             </TableCell>
           </TableRow>
         ))}

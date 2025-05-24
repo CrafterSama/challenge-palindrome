@@ -1,7 +1,7 @@
 import db from "./sqlite.js";
 
 const create = (words, callback) => {
-  const sql = `INSERT INTO challenge (words) VALUES (?)`;
+  const sql = `INSERT INTO challenge (words, is_palindrome) VALUES (?, ?)`;
 
   const isPalindrome = (words) => {
     const cleaned = words.replace(/[^a-z0-9]/gi, "").toLowerCase();
@@ -9,17 +9,18 @@ const create = (words, callback) => {
     return cleaned === cleaned.split("").reverse().join("");
   };
 
-  if (isPalindrome(words)) {
-    db.run(sql, [words], function (error) {
-      if (error) {
-        return callback(error);
-      }
+  let is_palindrome = false;
 
-      return callback(null, { isPalindrome: true, words });
-    });
-  } else {
-    return callback(null, { isPalindrome: false, words });
+  if (isPalindrome(words)) {
+    is_palindrome = true;
   }
+  db.run(sql, [words, is_palindrome], function (error) {
+    if (error) {
+      return callback(error);
+    }
+
+    return callback(null, { is_palindrome, words });
+  });
 };
 
 const findAll = (callback) => {
